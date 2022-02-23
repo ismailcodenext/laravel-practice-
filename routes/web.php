@@ -32,7 +32,8 @@ Route::get('/demo/{name}/{id?}', function($name, $id = null){
      return view('demo')->with($data);
 });
 Route::get('/test/{user_name?}', function ($user_name = null){
-   $data = compact('user_name');
+    $sample = "<h3>Sample Text</h3>";
+   $data = compact('user_name','sample' );
    return view('test')->with($data);
 });
 Route::get('/dashboard', function () {
