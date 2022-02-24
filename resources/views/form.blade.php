@@ -17,19 +17,48 @@
         <h1>Registration</h1>
         <form action="{{url('/')}}/user_register" method="post">
             @csrf
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="name" class="form-control" id="name">
+{{--            <pre>--}}
+{{--                   @php--}}
+{{--                        print_r($errors->all());--}}
+{{--                    @endphp--}}
+{{--            </pre>--}}
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" name="name" class="form-control" id="" value="{{old('name')}}">
+                <span class="text-danger">
+                    @error ('name')
+                    {{$message}}
+                    @enderror
+                </span>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="form-group">
+                <label for="">Email address</label>
+                <input type="email" name="email" class="form-control" id="" value="{{old('email')}}" aria-describedby="emailHelp">
+                <span class="text-danger">
+                    @error ('email')
+                    {{$message}}
+                    @enderror
+                </span>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control" id="">
+                <span class="text-danger">
+                    @error ('password')
+                    {{$message}}
+                    @enderror
+                </span>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input type="password" name="password_confirm" class="form-control" id="">
+                <span class="text-danger">
+                    @error ('password_confirm')
+                    {{$message}}
+                    @enderror
+                </span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
     </div>
 

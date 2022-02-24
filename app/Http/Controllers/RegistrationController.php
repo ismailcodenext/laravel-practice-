@@ -10,6 +10,15 @@ class RegistrationController extends Controller
         return view('form');
     }
     public function store(Request $request){
+        $request -> validate(
+           [
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+//                'password_confirmation' => 'required'
+                'password_confirm' => 'required|same:password'
+           ]
+        );
         echo "<pre>";
         print_r($request->all());
     }
