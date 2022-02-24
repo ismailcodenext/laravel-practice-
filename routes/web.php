@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +36,8 @@ Route::get('/test/{user_name?}', function ($user_name = null){
    $data = compact('user_name','sample' );
    return view('test')->with($data);
 });
+Route::get('user_register',[RegistrationController::class, 'index']);
+Route::post('user_register',[RegistrationController::class,'store']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
