@@ -16,49 +16,17 @@
     <div class="row">
         <h1>Registration</h1>
         <form action="{{url('/')}}/user_register" method="post">
-            @csrf
-{{--            <pre>--}}
-{{--                   @php--}}
-{{--                        print_r($errors->all());--}}
-{{--                    @endphp--}}
-{{--            </pre>--}}
-            <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" name="name" class="form-control" id="" value="{{old('name')}}">
-                <span class="text-danger">
-                    @error ('name')
-                    {{$message}}
-                    @enderror
-                </span>
-            </div>
-            <div class="form-group">
-                <label for="">Email address</label>
-                <input type="email" name="email" class="form-control" id="" value="{{old('email')}}" aria-describedby="emailHelp">
-                <span class="text-danger">
-                    @error ('email')
-                    {{$message}}
-                    @enderror
-                </span>
-            </div>
-            <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" name="password" class="form-control" id="">
-                <span class="text-danger">
-                    @error ('password')
-                    {{$message}}
-                    @enderror
-                </span>
-            </div>
-            <div class="form-group">
-                <label for="">Confirm Password</label>
-                <input type="password" name="password_confirm" class="form-control" id="">
-                <span class="text-danger">
-                    @error ('password_confirm')
-                    {{$message}}
-                    @enderror
-                </span>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+           <div class="container">
+               <x-input type="text" name="name" label="Please enter Your name:" />
+               <x-input type="email" name="email" label="Please enter Your Email Address:" />
+               <x-input type="password" name="password" label="Password:" />
+               <x-input type="password" name="password_confirm" label="Confirm password:" />
+
+               <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+           </div>
+
+
         </form>
     </div>
 
